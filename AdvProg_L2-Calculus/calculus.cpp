@@ -18,9 +18,17 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
-{
-    return 0.0;
+
+double myCos(double x) {
+    double result = 1.0;
+    double term = 1.0;
+    int sign = -1;
+    for (int i = 2; i <= 20; i += 2) {
+        term *= x * x / (i * (i - 1));
+        result += sign * term;
+        sign *= -1;
+    }
+    return result;
 }
 
 /***
@@ -29,9 +37,17 @@ double myCos(double x)
     Returns:
         double: sine of x
 ***/
-double mySin(double x)
-{
-    return 0.0;
+
+double myCos(double x) {
+    double result = 1.0;
+    double term = 1.0;
+    int sign = -1;
+    for (int i = 2; i <= 20; i += 2) {
+        term *= x * x / (i * (i - 1));
+        result += sign * term;
+        sign *= -1;
+    }
+    return result;
 }
 
 
@@ -48,5 +64,5 @@ double mySqrt(double x) {
     }
 
     
-    return 0;
+    return sqrt(x);
 }
