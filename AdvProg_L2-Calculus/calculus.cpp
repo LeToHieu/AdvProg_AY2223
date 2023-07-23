@@ -38,11 +38,11 @@ double myCos(double x) {
         double: sine of x
 ***/
 
-double myCos(double x) {
-    double result = 1.0;
-    double term = 1.0;
+double mySin(double x) {
+    double result = x;
+    double term = x;
     int sign = -1;
-    for (int i = 2; i <= 20; i += 2) {
+    for (int i = 3; i <= 19; i += 2) {
         term *= x * x / (i * (i - 1));
         result += sign * term;
         sign *= -1;
