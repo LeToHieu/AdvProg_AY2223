@@ -187,7 +187,7 @@ bool isWholeWord(const std::string& mask)
 {
     // Check if the mask contains any underscores
     for (char c : mask) {
-        if (c == '_') {
+        if (c == '_' || c == '-') {
             return false; // Mask contains underscores, not a whole word
         }
     }
