@@ -11,7 +11,7 @@ int readMaxGuess()
 int readWordLen()
 {
     int wordLen;
-    cout << endl << "Enter the number characters of your secret word: ";
+    cout << endl << "Enter the number characters of your secret wordf: ";
     cin >> wordLen;
     return wordLen;
     
@@ -132,8 +132,9 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 
     for (const string& word : candidateWords) {
         set<char> uniqueChars; 
-        for (char c : word) {
-            if (selectedChars.count(c) > 0) {
+        for (size_t i = 0; i < word.size(); i++) {
+            char c = word[i];
+            if (selectedChars.find(word.substr(0, i + 1)) != selectedChars.end()) {
                 continue; 
             }
 
