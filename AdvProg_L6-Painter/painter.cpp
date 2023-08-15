@@ -6,10 +6,10 @@
     Returns:
         None
 ***/
-void Painter::setColor(SDL_Color color) 
-{ 
-    // TODO: set the color value for the Painter and set Render Draw Color
-}
+void setColor(SDL_Color color) 
+    {
+        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    }
 
 
 /***
@@ -21,6 +21,11 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
+    	m_positionX = getX();
+    	m_positionY = getY();
+    	m_positionX += numPixel;
+       	setPosition(m_positionX, m_positionY);
+
 }
 
 
@@ -33,6 +38,10 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
+    m_positionX = getX();
+    m_positionY = getY();
+   	m_positionX -= numPixel;
+    setPosition(m_positionX, m_positionY);
 }
 
 
