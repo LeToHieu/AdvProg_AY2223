@@ -21,8 +21,8 @@ void setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    	m_positionX = getX();
-    	m_positionY = getY();
+    	int m_positionX = getX();
+    	int m_positionY = getY();
     	m_positionX += numPixel;
        	setPosition(m_positionX, m_positionY);
 
@@ -38,9 +38,9 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
-    m_positionX = getX();
-    m_positionY = getY();
-   	m_positionX -= numPixel;
+    int m_positionX = getX();
+    int m_positionY = getY();
+   	 m_positionX -= numPixel;
     setPosition(m_positionX, m_positionY);
 }
 
