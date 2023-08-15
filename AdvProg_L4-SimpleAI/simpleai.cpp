@@ -183,19 +183,19 @@ bool isCorrectChar(char ch, const string& mask)
         (Example: -False: g__d
                   -True:  good)
 ***/
-bool isWholeWord(const string& mask)
+bool isWholeWord(const std::string& mask)
 {
-    bool answer = true;
-
+    // Check if the mask contains any underscores
     for (char c : mask) {
         if (c == '_') {
-            answer = false;
-            break;
+            return false; // Mask contains underscores, not a whole word
         }
     }
-
-    return answer;
+    
+    return true; // No underscores found, it's a whole word
 }
+
+
 
 /***
     This function should be used to support the filterWordsByMask function below
