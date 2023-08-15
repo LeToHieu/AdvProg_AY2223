@@ -41,17 +41,19 @@ void Painter::jumpBackward(int numPixel)
 }
 
 
+/*
 /***
     Args: degree (double): the value of rotation angle
         
     Returns:
         None
-***/       
+***/     
+/*  
 void Painter::turnLeft(double degree)
 {
 
 }
-
+*/
 
 /***
     Args: degree (double): the value of rotation angle
@@ -59,10 +61,12 @@ void Painter::turnLeft(double degree)
     Returns:
         None
 ***/     
+/*
 void Painter::turnRight(double degree)
 {
 
 }
+*/
 
 /***  
     Args: 
