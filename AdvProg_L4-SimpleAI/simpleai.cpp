@@ -123,56 +123,26 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
         answer (char) : The most suitable character for prediction
 ***/
 
-char findBestChar(const vector<string>& candidateWords, const set<char>& selectedChars)
+char findBestChar(const std::vector<std::string>& candidateWords, const std::set<char>& selectedChars)
 {
-    char answer = '\0'; // Initialize with a null character
-
-    map<char, int> charOccurrences; // Track character occurrences in candidate words
-    map<char, int> charWordCount; // Track the number of candidate words each character appears in
-
-    // Iterate over each candidate word
-    for (const string& word : candidateWords) {
-        set<char> uniqueChars; // Track unique characters in each word
-
-        // Count character occurrences and unique characters
+    std::map<char, int> charFrequencies;
+    
+    for (const std::string& word : candidateWords) {
         for (char c : word) {
-            if (selectedChars.count(c) > 0) {
-                continue; // Skip selected characters
+            if (selectedChars.find(c) == selectedChars.end()) { 
+                charFrequencies[c]++;
             }
-
-            charOccurrences[c]++;
-            uniqueChars.insert(c);
-        }
-
-        // Update the character word count
-        for (char c : uniqueChars) {
-            charWordCount[c]++;
         }
     }
-
-    double maxScore = 0.0;
-
-    // Calculate a score for each character and find the maximum score
-    for (const auto& entry : charOccurrences) {
-        char character = entry.first;
-        int occurrences = entry.second;
-        int wordCount = charWordCount[character];
-
-        // Skip selected characters
-        if (selectedChars.count(character) > 0) {
-            continue;
-        }
-
-        double score = static_cast<double>(occurrences) / static_cast<double>(wordCount);
-
-        // Update the most suitable character if necessary
-        if (score > maxScore) {
-            maxScore = score;
-            answer = character;
+    char bestChar = '\0';  
+    int maxFrequency = 0;
+    for (const auto& pair : charFrequencies) {
+        if (pair.second > maxFrequency) {
+            maxFrequency = pair.second;
+            bestChar = pair.first;
         }
     }
-
-    return answer;
+    return bestChar;
 }
 
 string getWordMask(char nextChar)
