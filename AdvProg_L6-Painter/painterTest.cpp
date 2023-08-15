@@ -32,6 +32,7 @@ bool verifySetColor(SDL_Color color) {
     return true;
 }
 
+/*
 
 bool verifyJumpForward(int numPixel, double angle, int curX, int curY, int diffX, int diffY) {
     SDL_Window *window;
@@ -49,6 +50,26 @@ bool verifyJumpForward(int numPixel, double angle, int curX, int curY, int diffX
     }
     else {
       return false;
+    }
+}
+*/
+
+bool verifyJumpForward(int numPixel, double angle, int curX, int curY, int diffX, int diffY) {
+    SDL_Window *window;
+    SDL_Renderer *renderer;
+    initSDL(&window, &renderer);
+    Painter painter(window, renderer);
+    painter.setPosition(curX, curY);
+    painter.setAngle(angle);
+    painter.jumpForward(numPixel);
+    int diffX_ = painter.getX() - curX;
+    int diffY_ = painter.getY() - curY;
+    // Allowing some slack gap
+    if (abs(diffX-diffX_) < 2 && abs(diffY-diffY_) < 2) {
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
