@@ -23,7 +23,7 @@ const SDL_Color GREEN_COLOR = {0, 128, 0};
 const SDL_Color DEFAULT_COLOR = BLACK_COLOR;
 
 /***
-   An Implementation of Code.org Painter 
+   An Implementation of Code.org Painter
 ***/
 class Painter
 {
@@ -51,8 +51,8 @@ class Painter
 
         void moveForward(int numPixel);
         void moveBackward(int numPixel);
-        void turnLeft(double degree);
-        void turnRight(double degree);
+        void turnLeft(double degree) { setAngle(this->angle + degree); };
+        void turnRight(double degree){ turnLeft(-degree); };
         void jumpForward(int numPixel);
         void jumpBackward(int numPixel);
         void createCircle(int radius);
