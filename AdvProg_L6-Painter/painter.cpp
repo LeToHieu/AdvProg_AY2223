@@ -37,9 +37,12 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
-   	float rad = (angle / 180) * M_PI;
-	x -= cos(rad) * numPixel;
-	y += sin(rad) * numPixel;
+   	int newX = x + static_cast<int>(numPixel * cos(angle));
+    int newY = y - static_cast<int>(numPixel * sin(angle)); // Subtract because positive y is downwards in screen coordinates
+    
+    // Update the position
+    x = newX;
+    y = newY;
 }
 
 
